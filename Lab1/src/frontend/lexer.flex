@@ -38,6 +38,8 @@ import static frontend.Token.Type.*;
 /* This definition may come in handy. If you wish, you can add more definitions here. */
 
 WhiteSpace = [ ] | \t | \f | \n | \r
+String = \" [^\"\n]* \"
+
 
 %%
 /* put in your rules here.    */
@@ -84,7 +86,12 @@ WhiteSpace = [ ] | \t | \f | \n | \r
 "*" { return token(TIMES); }
 
 /* identifier*/
+[a-zA-Z][a-zA-Z0-9_]*	{ return token(ID); }
+[0-9]+		{ return token(INT_LITERAL); }
+{String} { return token(STRING_LITERAL); }
 
+
+{WhiteSpace}{}
 
 
 /* You don't need to change anything below this line. */
