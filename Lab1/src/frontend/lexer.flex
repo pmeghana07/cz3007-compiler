@@ -91,7 +91,7 @@ String = \" [^\"\n]* \"
 {String} { return token(STRING_LITERAL); }
 
 
-{WhiteSpace}{}
+{WhiteSpace} {}
 
 
 /* You don't need to change anything below this line. */
