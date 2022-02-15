@@ -22,7 +22,7 @@ import static frontend.Token.Type.*;
 	*/
 	
 	private Token token(Token.Type type) {
-		
+		return token(type, yytext());
 	}
 	
 	/* Use this method for rules where you need to process yytext() to get the lexeme of the token.
@@ -31,7 +31,7 @@ import static frontend.Token.Type.*;
 	 *       but they should not be part of the lexeme. 
 	*/
 	private Token token(Token.Type type, String text) {
-		
+		return new Token(type, yyline, yycolumn, text);
 	}
 %}
 
@@ -88,7 +88,7 @@ String = \" [^\"\n]* \"
 /* identifier*/
 [a-zA-Z][a-zA-Z0-9_]*	{ return token(ID); }
 [0-9]+		{ return token(INT_LITERAL); }
-{String} { return token(STRING_LITERAL); }
+{String} { return token(STRING_LITERAL, yytext().substring(1, yytext().length() - 1)); }
 
 
 {WhiteSpace} {}
