@@ -48,7 +48,7 @@ Declaration = FunctionDeclaration
 		
 FunctionDeclaration = AccessibilitySpecifier TypeName ID LPAREN ParameterList RPAREN LCURLY StatementList RCURLY;
 
-FieldDeclaration = AccessibilitySpecifier TYPE ID SEMICOLON;
+FieldDeclaration = AccessibilitySpecifier TypeName ID SEMICOLON;
 
 TypeDeclaration = AccessibilitySpecifier TYPE ID EQL STRING_LITERAL SEMICOLON;
 
